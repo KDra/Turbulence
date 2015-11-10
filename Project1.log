@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.8)  8 NOV 2015 20:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.8)  9 NOV 2015 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -775,23 +775,21 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen171
 \Gm@dimlist=\toks42
 )
-(./Project1.aux (./TEXT/q1.aux) (./TEXT/q2.aux) (./TEXT/q3.aux) (./TEXT/q4.aux)
-(./TEXT/q5.aux) (./TEXT/q6.aux) (./TEXT/q7.aux) (./TEXT/q8.aux) (./TEXT/q9.aux)
-(./TEXT/q10.aux))
+(./Project1.aux)
 \openout1 = `Project1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
  ABD: EveryShipout initializing macros
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -858,14 +856,14 @@ e
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
 * v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=483.69687pt
+* \textwidth=455.24411pt
 * \textheight=731.23584pt
-* \oddsidemargin=-15.36449pt
-* \evensidemargin=-15.36449pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
 * \topmargin=-45.36449pt
 * \headheight=15.0pt
 * \headsep=15.0pt
@@ -884,108 +882,62 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 19.
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 19.
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 19.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 20.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [1
+) (./TEXT/q1.tex
+<./TEXT/pdf1.png, id=4, 847.66687pt x 505.89pt>
+File: ./TEXT/pdf1.png Graphic file (type png)
+ <use ./TEXT/pdf1.png>
+Package pdftex.def Info: ./TEXT/pdf1.png used on input line 5.
+(pdftex.def)             Requested size: 423.8324pt x 252.94437pt.
 
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-\openout2 = `TEXT/q1.aux'.
+<./TEXT/pdf2.png, id=5, 847.66687pt x 505.89pt>
+File: ./TEXT/pdf2.png Graphic file (type png)
+ <use ./TEXT/pdf2.png>
+Package pdftex.def Info: ./TEXT/pdf2.png used on input line 30.
+(pdftex.def)             Requested size: 423.8324pt x 252.94437pt.
+)
+(./TEXT/q2.tex [1
 
- (./TEXT/q1.tex)
-[2
-
-]
-\openout2 = `TEXT/q2.aux'.
-
- (./TEXT/q2.tex) [3
-
-
-]
-\openout2 = `TEXT/q3.aux'.
-
- (./TEXT/q3.tex) [4
-
-
-]
-\openout2 = `TEXT/q4.aux'.
-
- (./TEXT/q4.tex) [5
-
-
-]
-\openout2 = `TEXT/q5.aux'.
-
- (./TEXT/q5.tex) [6
-
-
-]
-\openout2 = `TEXT/q6.aux'.
-
- (./TEXT/q6.tex) [7
-
-
-]
-\openout2 = `TEXT/q7.aux'.
-
- (./TEXT/q7.tex) [8
-
-
-]
-\openout2 = `TEXT/q8.aux'.
-
- (./TEXT/q8.tex) [9
-
-
-]
-\openout2 = `TEXT/q9.aux'.
-
- (./TEXT/q9.tex) [10
-
-
-]
-\openout2 = `TEXT/q10.aux'.
-
- (./TEXT/q10.tex) [11
-
-
-]
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./TEXT/
+pdf1.png>]) (./TEXT/q3.tex) (./TEXT/q4.tex) (./TEXT/q5.tex)
+(./TEXT/q6.tex) (./TEXT/q7.tex) (./TEXT/q8.tex [2 <./TEXT/pdf2.png>])
+(./TEXT/q9.tex) (./TEXT/q10.tex) [3]
 This exam contains 0 questions with 0 parts, 0 subparts, and 0 subsubparts.
-(./Project1.aux (./TEXT/q1.aux) (./TEXT/q2.aux) (./TEXT/q3.aux) (./TEXT/q4.aux)
-(./TEXT/q5.aux) (./TEXT/q6.aux) (./TEXT/q7.aux) (./TEXT/q8.aux) (./TEXT/q9.aux)
-(./TEXT/q10.aux)) ) 
+(./Project1.aux) ) 
 Here is how much of TeX's memory you used:
- 14445 strings out of 494961
- 271779 string characters out of 6179844
- 334830 words of memory out of 5000000
- 17310 multiletter control sequences out of 15000+600000
+ 14411 strings out of 494961
+ 271399 string characters out of 6179844
+ 328863 words of memory out of 5000000
+ 17312 multiletter control sequences out of 15000+600000
  11870 words of font info for 50 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 55i,10n,54p,449b,201s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
-.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
-pfb>
-Output written on Project1.pdf (11 pages, 101963 bytes).
+ 55i,12n,54p,453b,235s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
+fb>
+Output written on Project1.pdf (3 pages, 146488 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 55 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

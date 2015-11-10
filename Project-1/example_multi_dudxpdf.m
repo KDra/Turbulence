@@ -20,8 +20,8 @@ big_counts = zeros(1,length(uvals));
 for i = 1:Nfiles
 
     % open the file, binary, and read samples 
-    %fn = sprintf('../flow1/u1_pos_11_burst%d.bin', i);
-    fn = sprintf('../flow2/u1_pos_11_burst%d.bin', i);
+    %fn = sprintf('./flow1/u1_pos_11_burst%d.bin', i);
+    fn = sprintf('./flow2/u1_pos_11_burst%d.bin', i);
     fid = fopen(fn,'rb'); 
     u = fread(fid,inf,'float'); 
     n = length(u);

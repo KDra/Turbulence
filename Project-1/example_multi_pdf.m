@@ -1,7 +1,7 @@
 %% example PDF with ensemble average
 % t.g.thomas@soton.ac.uk (Nov/2015)
 
-clear all
+%clear all
 
 % Example of how to ensemble average PDFs
 % over multiple data files.
@@ -17,8 +17,8 @@ big_counts = zeros(1,length(uvals));
 for i = 1:Nfiles
 
     % open the file, binary, and read samples 
-    %fn = sprintf('../flow1/u1_pos_11_burst%d.bin', i);
-    fn = sprintf('../flow2/u1_pos_11_burst%d.bin', i);
+    fn = sprintf('./flow1/u1_pos_11_burst%d.bin', i);
+    %fn = sprintf('./flow2/u1_pos_11_burst%d.bin', i);
     fid = fopen(fn,'rb'); 
     u = fread(fid,inf,'float'); 
     n = length(u);
@@ -52,3 +52,4 @@ kurt = trapz(uvals,(uvals-U).^4.*pdf)/sigma^4
 % plot fitted normal PDF
 npdf = (1/sqrt(2*pi)/sigma)*exp(-(uvals-U).^2/2/sigma^2);
 plot(uvals,npdf);
+legend('Flow','Gaussian')

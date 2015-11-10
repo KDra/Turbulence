@@ -20,7 +20,7 @@ for i = 1:Nfiles
    
     % read samples from file
     %fn = sprintf('../flow1/u1_pos_11_burst%d.bin', i);
-    fn = sprintf('../flow2/u1_pos_11_burst%d.bin', i);
+    fn = sprintf('./flow2/u1_pos_11_burst%d.bin', i);
     fid = fopen(fn,'rb');           % rb=binary
     u = fread(fid,inf,'float');     % read as floats
     n = length(u);         
