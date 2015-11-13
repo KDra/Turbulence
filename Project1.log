@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.8)  13 NOV 2015 01:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.13)  13 NOV 2015 11:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Project1.tex
 (./Project1.tex
 LaTeX2e <2015/01/01>
-Babel <3.9l> and hyphenation patterns for 4 languages loaded.
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/exam/exam.cls
 Document Class: exam 2015/05/07 Version 2.5 by Philip Hirschhorn
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
@@ -947,9 +947,9 @@ File: ./TEXT/esd.png Graphic file (type png)
 
 <use ./TEXT/esd.png>
 Package pdftex.def Info: ./TEXT/esd.png used on input line 6.
-(pdftex.def)             Requested size: 445.6656pt x 309.55692pt.
-) (./TEXT/q8.tex
-<./TEXT/esd-n.png, id=37, 557.08125pt x 386.94562pt>
+(pdftex.def)             Requested size: 389.95422pt x 270.86008pt.
+) (./TEXT/q8.tex [5 <./TEXT/esd.png (PNG copy)>]
+<./TEXT/esd-n.png, id=40, 557.08125pt x 386.94562pt>
 File: ./TEXT/esd-n.png Graphic file (type png)
  <use ./TEXT/esd-n.png>
 Package pdftex.def Info: ./TEXT/esd-n.png used on input line 6.
@@ -960,11 +960,7 @@ File: ./TEXT/esd.png Graphic file (type png)
  <use ./TEXT/esd.png>
 Package pdftex.def Info: ./TEXT/esd.png used on input line 6.
 (pdftex.def)             Requested size: 278.53995pt x 193.47234pt.
-) (./TEXT/q10.tex) [5]
-
-LaTeX Warning: Text page 6 contains only floats.
-
-[6 <./TEXT/esd.png (PNG copy)> <./TEXT/esd-n.png (PNG copy)>] [7]
+) (./TEXT/q10.tex) [6 <./TEXT/esd-n.png (PNG copy)>] [7]
 This exam contains 0 questions with 0 parts, 0 subparts, and 0 subsubparts.
 (./Project1.aux)
 
@@ -972,12 +968,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14461 strings out of 494961
- 272330 string characters out of 6179844
- 330948 words of memory out of 5000000
- 17355 multiletter control sequences out of 15000+600000
+ 14461 strings out of 493089
+ 272330 string characters out of 6134841
+ 334605 words of memory out of 5000000
+ 17598 multiletter control sequences out of 15000+600000
  12568 words of font info for 52 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
+ 1141 hyphenation exceptions out of 8191
  55i,12n,56p,510b,235s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
@@ -991,7 +987,7 @@ texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
 live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Project1.pdf (7 pages, 338278 bytes).
+Output written on Project1.pdf (7 pages, 339020 bytes).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)
  57 compressed objects within 1 object stream

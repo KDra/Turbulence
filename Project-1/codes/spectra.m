@@ -18,7 +18,7 @@ un = u-um;%calculate the fluctuation of the signal
 [Pxx,F] = pwelch(un,Nscales.*Lint,1,acq_freq);
 
 figure(1);
-loglog(F,Pxx,'b-');
+semilogy(F,Pxx,'b-');
 hold on;
 % pause;
 
@@ -33,6 +33,6 @@ un = u-um;%calculate the fluctuation of the signal
 [Pxx,F] = pwelch(un,Nscales.*Lint,1,acq_freq);
 
 figure(1);
-loglog(F,Pxx,'r-');
+semilogy(F,Pxx,'r-');
 
 
