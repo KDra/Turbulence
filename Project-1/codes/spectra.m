@@ -5,8 +5,8 @@ acq_freq = 60000; %sampling frequency
 dt = 1./acq_freq; % time interval between successive data points
 lags_t = 1; % The window over which we want to look at the correlation. This is in seconds.
 nu = 1.5e-5;
-Lint = 800;
-Nscales = 80;
+Lint = 400;
+Nscales = 50;
 
 fn = ['../flow1/u1_pos_11_burst1.bin']; %assigning a file name to read
 fid = fopen(fn,'rb'); % opening a file in binary form so that you can read the file
@@ -20,7 +20,7 @@ un = u-um;%calculate the fluctuation of the signal
 figure(1);
 loglog(F,Pxx,'b-');
 hold on;
-pause;
+% pause;
 
 
 fn = ['../flow2/u1_pos_11_burst1.bin']; %assigning a file name to read

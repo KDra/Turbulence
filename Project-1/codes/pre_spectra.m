@@ -5,7 +5,7 @@ acq_freq = 60000; %sampling frequency
 dt = 1./acq_freq; % time interval between successive data points
 lags_t = 1; % The window over which we want to look at the correlation. This is in seconds.
 nu = 1.5e-5;
-Lint = 1800;
+Lint = 400;
 Nscales = 50;
 
 
@@ -20,12 +20,12 @@ un = u-um;%calculate the fluctuation of the signal
 k = 2.*pi.*F/um;
 diss_s = k.*k.*Pxx;
 
-figure(1);
-semilogx(k,k.*Pxx,'b-');
+%figure(1);
+semilogy(k,k.*Pxx,'b-');
 hold on;
 diss = 15.*nu.*trapz(k,diss_s)
 
-pause;
+%pause;
 fn = ['../flow2/u1_pos_11_burst1.bin']; %assigning a file name to read
 fid = fopen(fn,'rb'); % opening a file in binary form so that you can read the file
 u = fread(fid,inf,'float'); %reading the data in the file in to a vector - this reads all the data in to the this vector
@@ -35,10 +35,10 @@ un = u-um;%calculate the fluctuation of the signal
 
 [Pxx,F] = pwelch(un,Nscales.*Lint,1,acq_freq);
 
-figure(2);
+%figure(2);
 k = 2.*pi.*F/um;
 diss_s = k.*k.*Pxx;
-semilogx(k,k.*Pxx,'r-');
+semilogy(k,k.*Pxx,'r-');
 diss = 15.*nu.*trapz(k,diss_s)
 
 

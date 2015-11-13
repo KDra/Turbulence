@@ -3,13 +3,22 @@ close all;
 
 acq_freq = 60000; %sampling frequency
 dt = 1./acq_freq; % time interval between successive data points
-lags_t = 1; % The window over which we want to look at the correlation. This is in seconds.
+lags_t = 0.2; % The window over which we want to look at the correlation. This is in seconds.
+Nfiles = 5;
+ucor = [];
+% loop over ensemble files
+for i = 1:Nfiles
 
+    % open the file, binary, and read samples 
+    fn = sprintf('../flow1/u1_pos_11_burst%d.bin', i);
+    %fn = sprintf('../flow2/u1_pos_11_burst%d.bin', i);
+    fid = fopen(fn,'rb'); 
+    u = fread(fid,inf,'float'); 
+    %fprintf(1,'Read %d samples from file %s\n', n, fn);
+    ucor = [ucor; u];   
+end
 
-
-fn = ['../flow1/u1_pos_11_burst1.bin']; %assigning a file name to read
-fid = fopen(fn,'rb'); % opening a file in binary form so that you can read the file
-u = fread(fid,inf,'float'); %reading the data in the file in to a vector - this reads all the data in to the this vector
+u = ucor;
 len = length(u); %finding the number of points in the vector
 total_time = len.*dt; %establishing the total length (or time) of the signal (since we know acquisition frequency)
 
@@ -19,25 +28,34 @@ us = std(un);
 
 lags_n = floor(lags_t.*acq_freq); %calculating the number of points over which the correlation should be calculated
 
-[c,lags] = xcorr(un,lags_n,'unbiased'); %calcuates the autocorrelation
+%[c,lags] = xcorr(un,un,'unbiased'); %calcuates the autocorrelation
+[c,lags] = autocorr(un, lags_n);
+rho = c;%./(us.*us); %normalises the autocorrelation
 
-figure(1);
-subplot(1,2,1);
-plot(lags.*dt,c,'b-'); %plots the autocorrelation over a given window
-hold on;
-
-rho = c./(us.*us); %normalises the autocorrelation
-
-subplot(1,2,2);
 plot(lags.*dt,rho,'b-');
 hold on;
-% 
-Lf1 = trapz(lags,rho)
-pause
+%
+f = find(lags>=0);
+dr = [fliplr(rho(2:3)); rho(1:3)];
+der = [-1/12 	4/3 	-5/2 	4/3 	-1/12];
+tl1 = sqrt(-2 * dt^2 / sum(dr .* der'))
+Lf1 = trapz(lags,rho)%/acq_freq
 
-fn = ['../flow2/u1_pos_11_burst1.bin']; %assigning a file name to read
-fid = fopen(fn,'rb'); % opening a file in binary form so that you can read the file
-u = fread(fid,inf,'float'); %reading the data in the file in to a vector - this reads all the data in to the this vector
+%%
+ucor = [];
+% loop over ensemble files
+for i = 1:Nfiles
+
+    % open the file, binary, and read samples 
+    %fn = sprintf('./flow1/u1_pos_11_burst%d.bin', i);
+    fn = sprintf('../flow2/u1_pos_11_burst%d.bin', i);
+    fid = fopen(fn,'rb'); 
+    u = fread(fid,inf,'float'); 
+    %fprintf(1,'Read %d samples from file %s\n', n, fn);
+    ucor = [ucor; u];   
+end
+
+u = ucor;
 len = length(u); %finding the number of points in the vector
 total_time = len.*dt; %establishing the total length (or time) of the signal (since we know acquisition frequency)
 
@@ -47,20 +65,13 @@ us = std(un);
 
 lags_n = floor(lags_t.*acq_freq); %calculating the number of points over which the correlation should be calculated
 
-[c,lags] = xcorr(un,lags_n,'unbiased'); %calcuates the autocorrelation
-
-figure(1);
-subplot(1,2,1);
-plot(lags.*dt,c,'r-'); %plots the autocorrelation over a given window
+%[c,lags] = xcorr(un,lags_n,'unbiased'); %calcuates the autocorrelation
+[c,lags] = autocorr(un, lags_n);
+rho = c;%./(us.*us); %normalises the autocorrelation
 
 
-rho = c./(us.*us); %normalises the autocorrelation
-Lf2 = trapz(lags,rho)
-
-
-figure(1);
-subplot(1,2,2);
 plot(lags.*dt,rho,'r-');
-% 
 
-
+dr = [fliplr(rho(2:3)); rho(1:3)];
+tl2 = sqrt(-2 * dt^2 / sum(dr .* der'))
+Lf2 = trapz(lags,rho)% /acq_freq
