@@ -5,6 +5,9 @@
 \RequirePackage{tikz}
 \usetikzlibrary{plotmarks}
 \usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
+%\usepackage[authoryear,round,longnamesfirst]{natbib}
+\usepackage[section]{placeins}
+\usepackage{url}
 
 \author{Konstantinos Drakopoulos}
 \title{Coursework Project I}
@@ -14,6 +17,7 @@
 \newcommand{\term}{Autumn 2015}
 
 \begin{document}
+\bibliographystyle{plain}
 \onehalfspacing
 \pagestyle{head}
 \runningheader{\class}{ \thepage\ }{\term}
@@ -30,4 +34,5 @@
 \input{TEXT/q8}
 \input{TEXT/q9}
 \input{TEXT/q10}
+\bibliography{TEXT/biblio}
 \end{document}

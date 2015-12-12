@@ -7,32 +7,50 @@ lags_t = 1; % The window over which we want to look at the correlation. This is 
 nu = 1.5e-5;
 Lint = 400;
 Nscales = 50;
+Nfiles = 5;
 
-fn = ['../flow1/u1_pos_11_burst1.bin']; %assigning a file name to read
-fid = fopen(fn,'rb'); % opening a file in binary form so that you can read the file
-u = fread(fid,inf,'float'); %reading the data in the file in to a vector - this reads all the data in to the this vector
+ucor = [];
+% loop over ensemble files
+for i = 1:Nfiles
 
+    % open the file, binary, and read samples 
+    fn = sprintf('../flow1/u1_pos_11_burst%d.bin', i);
+    %fn = sprintf('../flow2/u1_pos_11_burst%d.bin', i);
+    fid = fopen(fn,'rb'); 
+    u = fread(fid,inf,'float'); 
+    %fprintf(1,'Read %d samples from file %s\n', n, fn);
+    ucor = [ucor; u];   
+end
+u = ucor;
 um = mean(u); %calculate the mean of the signal
 un = u-um;%calculate the fluctuation of the signal
 
 [Pxx,F] = pwelch(un,Nscales.*Lint,1,acq_freq);
 
 figure(1);
-semilogy(F,Pxx,'b-');
+loglog(F,Pxx,'b-');
 hold on;
 % pause;
 
+ucor = [];
+% loop over ensemble files
+for i = 1:Nfiles
 
-fn = ['../flow2/u1_pos_11_burst1.bin']; %assigning a file name to read
-fid = fopen(fn,'rb'); % opening a file in binary form so that you can read the file
-u = fread(fid,inf,'float'); %reading the data in the file in to a vector - this reads all the data in to the this vector
-
+    % open the file, binary, and read samples 
+    %fn = sprintf('./flow1/u1_pos_11_burst%d.bin', i);
+    fn = sprintf('../flow2/u1_pos_11_burst%d.bin', i);
+    fid = fopen(fn,'rb'); 
+    u = fread(fid,inf,'float'); 
+    %fprintf(1,'Read %d samples from file %s\n', n, fn);
+    ucor = [ucor; u];   
+end
+u = ucor;
 um = mean(u); %calculate the mean of the signal
 un = u-um;%calculate the fluctuation of the signal
 
 [Pxx,F] = pwelch(un,Nscales.*Lint,1,acq_freq);
 
 figure(1);
-semilogy(F,Pxx,'r-');
+loglog(F,Pxx,'r-');
 
 

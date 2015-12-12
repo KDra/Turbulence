@@ -6,12 +6,12 @@
 
 clear all
 
-uvals = linspace(-3e4, 3e4,401);                % grid of u-values
-times = linspace(0, 20,401); 
+uvals = linspace(-0.4e4, 0.4e4,401);                % grid of u-values
+times = linspace(0, 15,401); 
 Nfiles = 5;                         % number of files
 SR = 60000;                         % sample rate [S/s]
 dt = 1/SR;                          % time interval [s]
-Umean = 1;%0.0362;                    % mean velocity
+Umean = 10.0362;                    % mean velocity
 nu = 1.5e-5;                        % kinematic viscosity [m^2/s]
 
 % accumulate counts from each file into these bins
@@ -21,8 +21,8 @@ big_count = zeros(1,length(times));
 for i = 1:Nfiles
 
     % open the file, binary, and read samples 
-    fn = sprintf('./flow1/u1_pos_11_burst%d.bin', i);
-    %fn = sprintf('./flow2/u1_pos_11_burst%d.bin', i);
+    %fn = sprintf('./flow1/u1_pos_11_burst%d.bin', i);
+    fn = sprintf('./flow2/u1_pos_11_burst%d.bin', i);
     fid = fopen(fn,'rb'); 
     u = fread(fid,inf,'float'); 
     n = length(u);

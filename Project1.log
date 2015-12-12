@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.13)  13 NOV 2015 11:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.8)  14 NOV 2015 03:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Project1.tex
 (./Project1.tex
 LaTeX2e <2015/01/01>
-Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+Babel <3.9l> and hyphenation patterns for 4 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/exam/exam.cls
 Document Class: exam 2015/05/07 Version 2.5 by Philip Hirschhorn
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
@@ -772,26 +772,29 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen171
 \Gm@dimlist=\toks42
 )
-(./Project1.aux
-
-LaTeX Warning: Label `esd' multiply defined.
-
+(/usr/local/texlive/2015/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (./Project1.aux)
 \openout1 = `Project1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
- ABD: EveryShipout initializing macros
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+
+ABD: EveryShipout initializing macros
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count158
@@ -883,16 +886,16 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 21.
+LaTeX Font Info:    Try loading font information for U+msa on input line 25.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 21.
+LaTeX Font Info:    Try loading font information for U+msb on input line 25.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 21.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 25.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
@@ -942,55 +945,56 @@ Package pdftex.def Info: ./TEXT/auto2.png used on input line 13.
 (pdftex.def)             Requested size: 357.96146pt x 237.51175pt.
 )
 (./TEXT/q6.tex [4 <./TEXT/auto1.png (PNG copy)> <./TEXT/auto2.png (PNG copy)>])
-(./TEXT/q7.tex <./TEXT/esd.png, id=36, 557.08125pt x 386.94562pt>
+(./TEXT/q7.tex <./TEXT/esd.png, id=36, 563.85657pt x 411.78844pt>
 File: ./TEXT/esd.png Graphic file (type png)
 
 <use ./TEXT/esd.png>
 Package pdftex.def Info: ./TEXT/esd.png used on input line 6.
-(pdftex.def)             Requested size: 389.95422pt x 270.86008pt.
-) (./TEXT/q8.tex [5 <./TEXT/esd.png (PNG copy)>]
-<./TEXT/esd-n.png, id=40, 557.08125pt x 386.94562pt>
+(pdftex.def)             Requested size: 394.69691pt x 288.24992pt.
+) (./TEXT/q8.tex [5]
+<./TEXT/esd-n.png, id=41, 563.85657pt x 411.78844pt>
 File: ./TEXT/esd-n.png Graphic file (type png)
  <use ./TEXT/esd-n.png>
 Package pdftex.def Info: ./TEXT/esd-n.png used on input line 6.
-(pdftex.def)             Requested size: 445.6656pt x 309.55692pt.
+(pdftex.def)             Requested size: 451.08586pt x 329.43118pt.
 )
-(./TEXT/q9.tex
-File: ./TEXT/esd.png Graphic file (type png)
- <use ./TEXT/esd.png>
-Package pdftex.def Info: ./TEXT/esd.png used on input line 6.
-(pdftex.def)             Requested size: 278.53995pt x 193.47234pt.
-) (./TEXT/q10.tex) [6 <./TEXT/esd-n.png (PNG copy)>] [7]
+(./TEXT/q9.tex [6 <./TEXT/esd.png>]
+<./TEXT/esd-d.png, id=46, 563.85657pt x 411.78844pt>
+File: ./TEXT/esd-d.png Graphic file (type png)
+ <use ./TEXT/esd-d.png>
+Package pdftex.def Info: ./TEXT/esd-d.png used on input line 6.
+(pdftex.def)             Requested size: 451.08586pt x 329.43118pt.
+)
+(./TEXT/q10.tex [7 <./TEXT/esd-n.png>]) (./Project1.bbl [8 <./TEXT/esd-d.png (P
+NG copy)>]) [9]
 This exam contains 0 questions with 0 parts, 0 subparts, and 0 subsubparts.
-(./Project1.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+(./Project1.aux) ) 
 Here is how much of TeX's memory you used:
- 14461 strings out of 493089
- 272330 string characters out of 6134841
- 334605 words of memory out of 5000000
- 17598 multiletter control sequences out of 15000+600000
- 12568 words of font info for 52 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 55i,12n,56p,510b,235s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Project1.pdf (7 pages, 339020 bytes).
+ 14569 strings out of 494961
+ 273833 string characters out of 6179844
+ 331161 words of memory out of 5000000
+ 17449 multiletter control sequences out of 15000+600000
+ 13089 words of font info for 54 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 55i,12n,56p,663b,285s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.
+pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Project1.pdf (9 pages, 371789 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -7,29 +7,48 @@ lags_t = 1; % The window over which we want to look at the correlation. This is 
 nu = 1.5e-5;
 Lint = 400;
 Nscales = 50;
+Nfiles = 5;
 
+ucor = [];
+% loop over ensemble files
+for i = 1:Nfiles
 
-fn = ['../flow1/u1_pos_11_burst1.bin']; %assigning a file name to read
-fid = fopen(fn,'rb'); % opening a file in binary form so that you can read the file
-u = fread(fid,inf,'float'); %reading the data in the file in to a vector - this reads all the data in to the this vector
-
+    % open the file, binary, and read samples 
+    fn = sprintf('../flow1/u1_pos_11_burst%d.bin', i);
+    %fn = sprintf('../flow2/u1_pos_11_burst%d.bin', i);
+    fid = fopen(fn,'rb'); 
+    u = fread(fid,inf,'float'); 
+    %fprintf(1,'Read %d samples from file %s\n', n, fn);
+    ucor = [ucor; u];   
+end
+u = ucor;
 um = mean(u); %calculate the mean of the signal
 un = u-um;%calculate the fluctuation of the signal
 
 [Pxx,F] = pwelch(un,Nscales.*Lint,1,acq_freq);
 k = 2.*pi.*F/um;
 diss_s = k.*k.*Pxx;
-
+diss1 = 15.*nu.*trapz(k,k.*Pxx)
+lambda = sqrt(2*trapz(F, Pxx)/trapz(k,k.*Pxx))
+%(nu^3/diss1)^0.25
+L1 = k(find(max(Pxx.*k)==Pxx.*k))
 %figure(1);
-semilogy(k,k.*Pxx,'b-');
+loglog(k,k.*Pxx,'b-');
 hold on;
-diss = 15.*nu.*trapz(k,diss_s)
 
-%pause;
-fn = ['../flow2/u1_pos_11_burst1.bin']; %assigning a file name to read
-fid = fopen(fn,'rb'); % opening a file in binary form so that you can read the file
-u = fread(fid,inf,'float'); %reading the data in the file in to a vector - this reads all the data in to the this vector
+ucor = [];
+% loop over ensemble files
+for i = 1:Nfiles
 
+    % open the file, binary, and read samples 
+    %fn = sprintf('./flow1/u1_pos_11_burst%d.bin', i);
+    fn = sprintf('../flow2/u1_pos_11_burst%d.bin', i);
+    fid = fopen(fn,'rb'); 
+    u = fread(fid,inf,'float'); 
+    %fprintf(1,'Read %d samples from file %s\n', n, fn);
+    ucor = [ucor; u];   
+end
+u = ucor;
 um = mean(u); %calculate the mean of the signal
 un = u-um;%calculate the fluctuation of the signal
 
@@ -38,7 +57,10 @@ un = u-um;%calculate the fluctuation of the signal
 %figure(2);
 k = 2.*pi.*F/um;
 diss_s = k.*k.*Pxx;
-semilogy(k,k.*Pxx,'r-');
-diss = 15.*nu.*trapz(k,diss_s)
+loglog(k,k.*Pxx,'r-');
+diss2 = 15.*nu.*trapz(k,diss_s/dt)
+lambda = sqrt(2*trapz(F, Pxx)/trapz(k,k.*Pxx))
+%(nu^3/diss2)^0.25
 
-
+L2 = k(find(max(Pxx.*k)==Pxx.*k)) %Pxx(1)/4/um^2
+%

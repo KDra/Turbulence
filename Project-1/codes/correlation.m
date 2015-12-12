@@ -3,7 +3,7 @@ close all;
 
 acq_freq = 60000; %sampling frequency
 dt = 1./acq_freq; % time interval between successive data points
-lags_t = 0.2; % The window over which we want to look at the correlation. This is in seconds.
+lags_t = 1; % The window over which we want to look at the correlation. This is in seconds.
 Nfiles = 5;
 ucor = [];
 % loop over ensemble files
