@@ -1,0 +1,26 @@
+\section*{Question 6}
+\textit{Using the autocorrelation function, calculate the Integral length scale and the Taylor micro scale for both datasets. Comment on the results obtained.}
+
+The values in table \ref{scales} are obtained using eq. \eqref{int-l} and \eqref{lambda}, where $\rho$ is the autocorrelation coefficient and $\tau$ the time. To obtain eq. \eqref{lambda} a second degree central difference scheme with a fourth order of accuracy was used at $\tau = 0$. The chosen window size is of $1s$ and the integral scale is given in seconds (i.e. the acquisition signal mutiplied by eq. \eqref{int-l}).
+
+\begin{equation}\label{int-l}
+T_{int} = \int_0^{\infty} \rho (\tau) d\tau
+\end{equation}
+
+\begin{equation}\label{lambda}
+\lambda = \sqrt{- \frac{2}{\rho''(\tau)}}
+\end{equation}
+
+\begin{table}[!ht]
+\centering
+\caption{Integral scale($T_{int}$) and Taylor microscale($\lambda$) for flows 1 and 2}
+\label{scales}
+\begin{tabular}{c|c|c}
+Flow & $T_{int}$ & $\lambda$ \\
+\hline
+1 & $7.46 \times 10^{-6}s$ & $1.49 \times 10^{-5}$\\
+2 & $6.62 \times 10^{-3}s$ & $1.51 \times 10^{-4}$
+\end{tabular}
+\end{table}
+
+Table \ref{scales} shows that in the second flowcase the velocity is correlated with itself by three orders of magnitude longer than in the first. The Taylor microscale is a description of how often a signal passes $0$.
