@@ -1,8 +1,8 @@
 %% 1D Convection Diffusion Equation
 % t.g.thomas@soton 23/Nov/2015
 
-function [] = wave()
-
+function [flag] = wave(dt)
+flag = 1;
 % debug
 fprintf(1,'Start: wave.m\n');
 
@@ -11,7 +11,7 @@ N = 2048;                               % number of grid points
 X0 = -5.0;                              % start of domain
 X1 = 10.0;                              % end of domain
 L = X1 - X0;                            % length of domain
-dt = 0.003;                             % time interval
+dt = 0.0001;                             % time interval
 dx = L/N;                               % mesh interval
 
 % physical parameters
@@ -34,12 +34,12 @@ sigma = 0.05;                           % gaussian semi-width
 f = gaussian(0, sigma, x);
 
 % integral constants
-fprintf(1,'Initial, Area = %f\n', dx*sum(f));
-fprintf(1,'Initial, Energy = %f\n', dx*sum(f.^2)/2);
-
+fprintf(1,'Initial, Area = %5.3e\n', dx*sum(f));
+fprintf(1,'Initial, Energy = %5.3e\n', dx*sum(f.^2)/2);
+miE = dx*sum(f.^2)/2;
 % Courant numbers
-fprintf(1,'Convection CFL: c*dt/dx = %f\n', c*dt/dx);
-fprintf(1,'Diffusion CFL: nu*dt/dx^2 = %f\n', nu*dt/dx^2);
+fprintf(1,'Convection CFL: c*dt/dx = %5.3e\n', c*dt/dx);
+fprintf(1,'Diffusion CFL: nu*dt/dx^2 = %5.3e\n', nu*dt/dx^2);
 
 %  time steps
 Nstep = 2500;                             % number of time steps
@@ -54,8 +54,8 @@ for k = 1:Nstep
 	% Change time-steps method
     %f = tstep_Euler(@dfdt_diff2, f, c, nu, dt, dx, N); % unstable
     %f = tstep_Euler(@dfdt_diff4, f, c, nu, dt, dx, N); 
-    %f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
-    f = tstep_RK2(@dfdt_diff4, f, c, nu, dt, dx, N);
+    f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
+    %f = tstep_RK2(@dfdt_diff4, f, c, nu, dt, dx, N);
     
     % logging
     t = t + dt;
@@ -66,9 +66,11 @@ end
 
 % evaluate the solution
 % integral 'constants'
-fprintf(1,'Area = %f\n', dx*sum(f));
-fprintf(1,'Energy = %f\n', dx*sum(f.^2)/2);
-
+fprintf(1,'Area = %5.3e\n', dx*sum(f));
+fprintf(1,'Energy = %5.3e\n', dx*sum(f.^2)/2);
+if dx*sum(f.^2)/2 > miE
+    flag = 0;
+end
 % plots
 figure(1)
 hold off
