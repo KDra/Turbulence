@@ -1,6 +1,8 @@
 \section*{Question 1}
 \emph{Investigate the stability and accuracy of the four schemes in terms of the Courant-Friedrichs-Lewy (CFL) numbers $\lambda = c \tfrac{dt}{dx}$ and $\mu = \nu \tfrac{dt}{{dx}^2}$. In particular use numerical experimentation and/or von Neumann stability analysis to determine stability boundaries.}
 
+The stability boundary is probed numerically by varying dt, since the convection and diffusion are fixed and changing dx is slightly more complicated. The complication arises through its squaring and a simple numerical scheme to probe the boundary such as that shown in listing \ref{code1} would be more complicated to write. The shown script works by setting
+
 \lstinputlisting[language=Octave, caption=Code used to find the maximum time step and the resulting CFL parameters]{probe.m}\label{code1}
 
 \begin{table}[ht]
@@ -9,9 +11,9 @@
 \centering
 \begin{tabular}{l|c|c|c}
 & Convection $\lambda$ & Diffusion $\mu$  & $dt$\\ \hline
-Euler - Central Diff 2 & $2.7530e-03$ & $4.0000e-06$ & $2.0161e-05$\\
-Euler - Central Diff 4 & $2.7310e-03$ & $4.0000e-06$ & $2.0002e-05$\\
-RK2 - Central Diff 2 & $6.010206e-01$ & \\
+Euler - Central Diff 2 & $2.753e-03$ & $4.0000e-06$ & $2.0161e-05$\\
+Euler - Central Diff 4 & $2.731e-03$ & $4.0000e-06$ & $2.0002e-05$\\
+RK2 - Central Diff 2 & $6.01e-01$ & \\
 RK2 - Central Diff 4 &\\
 \end{tabular}
 \end{table}

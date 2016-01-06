@@ -11,7 +11,7 @@ N = 2048;                               % number of grid points
 X0 = -5.0;                              % start of domain
 X1 = 10.0;                              % end of domain
 L = X1 - X0;                            % length of domain
-dt = 0.0001;                             % time interval
+dt = 0.004;                            % time interval
 dx = L/N;                               % mesh interval
 
 % physical parameters
@@ -40,7 +40,7 @@ miE = dx*sum(f.^2)/2;
 % Courant numbers
 fprintf(1,'Convection CFL: c*dt/dx = %5.3e\n', c*dt/dx);
 fprintf(1,'Diffusion CFL: nu*dt/dx^2 = %5.3e\n', nu*dt/dx^2);
-
+f1=f;
 %  time steps
 Nstep = 2500;                             % number of time steps
 
@@ -68,7 +68,7 @@ end
 % integral 'constants'
 fprintf(1,'Area = %5.3e\n', dx*sum(f));
 fprintf(1,'Energy = %5.3e\n', dx*sum(f.^2)/2);
-if dx*sum(f.^2)/2 > miE
+if sum(f1/f)<dx*sum(f.^2)/2 > miE
     flag = 0;
 end
 % plots
