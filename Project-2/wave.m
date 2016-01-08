@@ -1,7 +1,7 @@
 %% 1D Convection Diffusion Equation
 % t.g.thomas@soton 23/Nov/2015
 
-function [flag] = wave(dt)
+function [flag, en] = wave(dt)
 flag = 1;
 % debug
 fprintf(1,'Start: wave.m\n');
@@ -11,7 +11,8 @@ N = 2048;                               % number of grid points
 X0 = -5.0;                              % start of domain
 X1 = 10.0;                              % end of domain
 L = X1 - X0;                            % length of domain
-dt = 0.004;                            % time interval
+%
+dt = 0.003;                            % time interval
 dx = L/N;                               % mesh interval
 
 % physical parameters
@@ -52,9 +53,9 @@ E = zeros(1,Nstep);
 for k = 1:Nstep
     % Edit: select scheme below
 	% Change time-steps method
-    %f = tstep_Euler(@dfdt_diff2, f, c, nu, dt, dx, N); % unstable
+    f = tstep_Euler(@dfdt_diff2, f, c, nu, dt, dx, N); % unstable
     %f = tstep_Euler(@dfdt_diff4, f, c, nu, dt, dx, N); 
-    f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
+    %f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
     %f = tstep_RK2(@dfdt_diff4, f, c, nu, dt, dx, N);
     
     % logging
@@ -68,7 +69,12 @@ end
 % integral 'constants'
 fprintf(1,'Area = %5.3e\n', dx*sum(f));
 fprintf(1,'Energy = %5.3e\n', dx*sum(f.^2)/2);
-if sum(f1/f)<dx*sum(f.^2)/2 > miE
+en = dx*sum(f.^2)/2 - miE;
+dedt = (E(2:end)-E(1:end-1))/dt;
+dedt2 = (dedt(2:end) - dedt(1:end-1))/dt;
+df = dfdt_diff4(f, c, nu, dx, N);
+df2 = dfdt_diff4(df, c, nu, dx, N); 
+if dedt2(1)-dedt2(end)<0% || en>0 || en==NaN %sum(abs((f1-f)))>10
     flag = 0;
 end
 % plots
@@ -97,7 +103,7 @@ hold on
 plot(T,E,'r');
 xlabel('t');
 ylabel('A(t), E(t)');
-
+hold off
 end                                     % end of wave()
 
 
