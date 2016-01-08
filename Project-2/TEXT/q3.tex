@@ -1,2 +1,4 @@
 \section*{Question 3}
 \emph{Investigate the solutions when the viscosity is very small (in effect, zero) so that we reduce to the one-dimensional wave equation. Look the amplitude (growth/decay, stability) and dispersion (phase speed of wave components. One way to retain stability is to add an optimal small amount of artificial viscosity (e.g. the Lax-Wendroff method, Euler+CDiff2, using $\nu = 0.5 c^2 dt$).}
+
+When viscosity is close to $0$ the solution tends to explode as the energy and area goes to infinity. The reason for this is that some gain exists due to numerical approximation that is accumulated with each iteration. The effect is strongest in Euler based methods of time propagation since any previous errors will be added to the new time step. RK2 is much better behaved.

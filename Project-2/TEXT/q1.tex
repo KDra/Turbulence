@@ -5,7 +5,7 @@
 
 The stability boundary is probed numerically by varying dt, since the convection and diffusion are fixed. Changing $\Delta x$ is also unnecessary since $k = \sigma/c = 0.05$ and in consequence $k \Delta x \approx 3.6\times 10^{-4} \ll 2\pi$. The code in Listing \ref{code1} was used to probe the stability boundary numerically for increasing $\Delta t$. The criteria for changing the truth flag is stored in the 
 
-\lstinputlisting[label=code1, language=Octave, caption=Code used to find the maximum time step and the resulting CFL parameters]{probe.m}
+\lstinputlisting[label=code1, language=Octave, caption=Code used to find the maximum time step and the resulting CFL parameters]{probe2.m}
 
 \begin{table}[ht!]
 \caption{CFL coefficients and time step for a stable boundary}
