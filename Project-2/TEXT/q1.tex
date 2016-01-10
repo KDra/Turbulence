@@ -1,50 +1,24 @@
 \section*{Question 1}
 \emph{Investigate the stability and accuracy of the four schemes in terms of the Courant-Friedrichs-Lewy (CFL) numbers $\lambda = c \tfrac{dt}{dx}$ and $\mu = \nu \tfrac{dt}{{dx}^2}$. In particular use numerical experimentation and/or von Neumann stability analysis to determine stability boundaries.}
 
-
-
-The stability boundary is probed numerically by varying dt, since the convection and diffusion are fixed. Changing $\Delta x$ is also unnecessary since $k = \sigma/c = 0.05$ and in consequence $k \Delta x \approx 3.6\times 10^{-4} \ll 2\pi$. The code in Listing \ref{code1} was used to probe the stability boundary numerically for increasing $\Delta t$. The criteria for changing the truth flag is stored in the 
-
 \lstinputlisting[label=code1, language=Octave, caption=Code used to find the maximum time step and the resulting CFL parameters]{probe2.m}
 
-\begin{table}[ht!]
-\caption{CFL coefficients and time step for a stable boundary}
-\label{tbl1}
+The stability boundary is probed numerically through the script in Listing \ref{code1} by iterating the provided \texttt{wave.m}, which was changed to accept values of $c$ and $\nu$ and return a boolean flag to whether the function is stable or not. Since the energy is supposed to decay with each iteration due to losses from viscosity, a final energy value higher than the initial should indicate that the problem has become unstable. The ranges of $c$ and $\nu$ are created using a \texttt{linspace} command and starting from values close to $0$ to avoid instabilities especially for Euler based evolutions. Figures \ref{euler} and \ref{rk2} show the stability for the four combinations of space and time differencing formulas.
+
+\begin{figure}[ht!]
 \centering
-\begin{tabular}{l|c|c|c}
-& Convection $\lambda$ & Diffusion $\mu$  & $dt$\\ \hline
-Euler - Central Diff 2 & $2.753e-03$ & $3.758e-06$ & $2.0162e-05$\\
-Euler - Central Diff 4 & $2.731e-03$ & $3.729e-06$ & $2.0002e-05$\\
-RK2 - Central Diff 2 & $2.731e-02$ & $ 3.728e-05$ & $2.000e-04$ \\
-RK2 - Central Diff 4 & $1.365e-01$ & $1.864e-04$ & $1.000e-03$\\
-\end{tabular}
-\end{table}
+\includegraphics[scale=0.8]{./TEXT/Euler.png}
+\caption{Euler time stepping with $2^{nd}$ and $4^{th}$ order Central Differences}
+\label{euler}
+\end{figure}
 
+The main differences between using \nth{2} and \nth{4} Central Differences is that the upper stability boundary is lowered from $\lambda \approx 0.5$ in the CD2 case to $\lambda \approx 0.37$ in the CD4 case. The lower value for CD4 is expected due to the fact that more nearby spatial mesh points are required to propagate the solution to the next time step accurately. The lower stability boundary (in orange) for Euler time-stepping is more linear than for Runge-Kutta 2 due to the fact that in RK2 the time step is 'divided' into a predicted value and a corrected one which can be compared to taking a smaller step size.
 
-%
-%\begin{figure}[!ht]
-%\centering
-%\includegraphics[scale=0.4]{./TEXT/pdf1.png}
-%\caption{The Probability Density function for \emph{flow 1}}
-%\label{pdf1}
-%\end{figure}
-%
-%
-%\begin{table}[ht]
-%\caption{Comparison of the first four moments for the two flows.}
-%\label{tbl1}
-%\centering
-%\begin{tabular}{l|c|c}
-%& Flow 1 & Flow 2 \\
-%\hline
-%1\su{st} Moment: Mean & $10.04$ & $10.04$ \\
-%\hline
-%2\su{nd} Moment:Variance & $2.72$ & $2.72$ \\
-%\hline
-%3\su{rd} Moment:Skewness & $0.05$ & $0.05$\\
-%\hline
-%4\su{th} Moment:Kurtosis & $2.78$ & $2.78$ \\
-%\hline
-%\end{tabular}
-%\end{table}
-%
+\begin{figure}[ht!]
+\centering
+\includegraphics[scale=0.8]{./TEXT/RK2.png}
+\caption{Runge-Kutta 2 time stepping with $2^{nd}$ and $4^{th}$ order Central Differences}
+\label{rk2}
+\end{figure}
+
+The coarseness of the two ranges means that the exact moment when the instabilities start to grow are not captured, so the displayed graphs should be taken as an indication of general behaviour of the methods and not precise quantitative truth. It should also be noted that in some of the methods the values of $\mu$ become larger than $1$, which even though it is not displayed at that moment as an energy increase, it is an instability due to the fact that the lower frequencies are separated from the main wave and move slower. This behaviour is not captured by the comparison charts in the figures below and they should be seen, again, as an indication of general behaviour and not quantitative accuracy.

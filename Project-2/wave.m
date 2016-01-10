@@ -3,6 +3,7 @@
 
 function [flag] = wave(c, nu)
 flag = 1;
+method=2;
 % debug
 % fprintf(1,'Start: wave.m\n');
 
@@ -17,12 +18,12 @@ dx = L/N;                               % mesh interval
 
 % physical parameters
 %c = 1.0;                                % convection velocity
-%nu = 1.0e-5;                            % diffusion
+%nu = 1.0e-4;                            % diffusion
 
 % artificial viscosity (Lax-Wendroff)
 %nu = 0.501*c^2*dt;                       % Euler-CDif2/CDif4
 %nu = 0.03*c^4*dt^3/dx^2;                 % RK2-CDif2/CDif4
-
+close all;
 % solution
 t = 0;                                  % time
 f = zeros(1,N);                         % solution
@@ -35,12 +36,12 @@ sigma = 0.05;                           % gaussian semi-width
 f = gaussian(0, sigma, x);
 
 % integral constants
-% fprintf(1,'Initial, Area = %5.3e\n', dx*sum(f));
-% fprintf(1,'Initial, Energy = %5.3e\n', dx*sum(f.^2)/2);
+fprintf(1,'Initial, Area = %5.3e\n', dx*sum(f));
+fprintf(1,'Initial, Energy = %5.3e\n', dx*sum(f.^2)/2);
 miE = dx*sum(f.^2)/2;
 % Courant numbers
-% fprintf(1,'Convection CFL: c*dt/dx = %5.3e\n', c*dt/dx);
-% fprintf(1,'Diffusion CFL: nu*dt/dx^2 = %5.3e\n', nu*dt/dx^2);
+fprintf(1,'Convection CFL: c*dt/dx = %5.3e\n', c*dt/dx);
+fprintf(1,'Diffusion CFL: nu*dt/dx^2 = %5.3e\n', nu*dt/dx^2);
 f1=f;
 %  time steps
 Nstep = 2500;                             % number of time steps
@@ -52,12 +53,16 @@ E = zeros(1,Nstep);
 
 for k = 1:Nstep
     % Edit: select scheme below
-	% Change time-steps method
-    %f = tstep_Euler(@dfdt_diff2, f, c, nu, dt, dx, N); % unstable
-    f = tstep_Euler(@dfdt_diff4, f, c, nu, dt, dx, N); 
-    %f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
-    %f = tstep_RK2(@dfdt_diff4, f, c, nu, dt, dx, N);
-    
+    % Change time-steps method
+    if method==1
+        f = tstep_Euler(@dfdt_diff2, f, c, nu, dt, dx, N); % unstable
+    elseif method==2
+        f = tstep_Euler(@dfdt_diff4, f, c, nu, dt, dx, N);
+    elseif method==3
+        f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
+    elseif method==4
+        f = tstep_RK2(@dfdt_diff4, f, c, nu, dt, dx, N);
+    end
     % logging
     t = t + dt;
     A(k) = dx*sum(f);
@@ -65,46 +70,49 @@ for k = 1:Nstep
     T(k) = t;
 end
 
-% evaluate the solution
-% integral 'constants'
-% fprintf(1,'Area = %5.3e\n', dx*sum(f));
-% fprintf(1,'Energy = %5.3e\n', dx*sum(f.^2)/2);
+%evaluate the solution
+%integral 'constants'
+fprintf(1,'Area = %5.3e\n', dx*sum(f));
+fprintf(1,'Energy = %5.3e\n', dx*sum(f.^2)/2);
 
-en = dx*sum(f.^2)/2 - miE;
+en = E(end) - miE;
 % dedt = (E(2:end)-E(1:end-1))/dt;
 % dedt2 = (dedt(2:end) - dedt(1:end-1))/dt;
 % df = dfdt_diff4(f, c, nu, dx, N);
-% df2 = dfdt_diff4(df, c, nu, dx, N); 
+% df2 = dfdt_diff4(df, c, nu, dx, N);
 if en>0 || isinf(en) || isnan(en) %sum(abs((f1-f)))>10
     flag = 0;
 end
-% % plots
-% figure(1)
-% hold off
-% plot(x,f)
-% hold on
-% plot(x,gaussian(0+c*T(Nstep),sigma,x),'--r');
-% xlabel('x');
-% ylabel('f');
-% 
+% plots
+% subplot(1, 3, 1)
+figure(1)
+hold off
+plot(x,f)
+hold on
+plot(x,gaussian(0+c*T(Nstep),sigma,x),'--r');
+xlabel('x');
+ylabel('f');
+
 % % repeat + zoom in
-% figure(2)
-% hold off
-% plot(x,f)
-% hold on
-% plot(x,gaussian(0+c*T(Nstep),sigma,x),'--r');
-% xlim([c*T(Nstep)-1,c*T(Nstep)+1]);
-% xlabel('x');
-% ylabel('f');
-% 
-% figure(3)
-% hold off
-% plot(T,A);
-% hold on
-% plot(T,E,'r');
-% xlabel('t');
-% ylabel('A(t), E(t)');
-% hold off
+% subplot(1, 3, 2)
+figure(2)
+hold off
+plot(x,f)
+hold on
+plot(x,gaussian(0+c*T(Nstep),sigma,x),'--r');
+xlim([c*T(Nstep)-1,c*T(Nstep)+1]);
+xlabel('x');
+ylabel('f');
+
+%subplot(2, 2, 1)
+figure(3)
+hold off
+plot(T,A);
+hold on
+plot(T,E,'r');
+xlabel('t');
+ylabel('A(t), E(t)');
+hold off
 end                                     % end of wave()
 
 
@@ -114,7 +122,7 @@ function [f1] = tstep_Euler(dfdt, f0, c, nu, dt, dx, N)
 
 f1 = zeros(1,N);
 f1 = f0 + dt*dfdt(f0, c, nu, dx, N);
-end % tstep_Euler 
+end % tstep_Euler
 
 % tstep_RK2 - advance the solution over a time step using RK2
 function [f1] = tstep_RK2(dfdt, f0, c, nu, dt, dx, N)
@@ -173,14 +181,14 @@ end % dfdt_diff4
 
 % gaussian - return a Gaussian profile of semi-width sigma located at x=xc
 function [f] = gaussian(xc, sigma, x)
-% xc = location x of the peak 
+% xc = location x of the peak
 % sigma = Gaussian semi-width
 % x = {x1, x2, ..., xn} locations to return the profile
 % f = {f1, f2, ..., fn} values of f at x
 f = zeros(size(x));
 
 for j = 1:length(x)
-  f(j) = exp(-(x(j)-xc).^2/(2*sigma.^2))/sqrt(2*pi)/sigma;
+    f(j) = exp(-(x(j)-xc).^2/(2*sigma.^2))/sqrt(2*pi)/sigma;
 end
 end % gaussian
 

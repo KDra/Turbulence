@@ -1,3 +1,22 @@
 \section*{Question 4}
 \emph{Investigate the solutions when convection is negligible ($c = 0$). Look at the accuracy and stability limit in terms of $\mu = \nu \tfrac{dt}{dx^2}$ for the different schemes.}
 
+Table \ref{tbl1} shows that the lower limit is $0$ as expected for all methods and the upper limit depends on the order of the central differencing scheme, with a maximum value $\mu = 5.592e-02$ for the second order scheme and $\mu = 3.355e-01$ for the fourth order scheme. The higher order scheme is more stable for larger values of $\nu$ (or larger step sizes) due to the larger number of values used to predict the next step and thus the smaller proportion of error that is propagated in time.
+
+\begin{table}[!ht]
+\caption{Diffusion CFL $\mu = \nu \tfrac{dt}{dx^2}$ limit comparison.}
+\label{tbl1}
+\centering
+\begin{tabular}{l|c|c}
+& Lower limit & Upper limit \\
+\hline
+Euler - CD 2 & $0$ & $5.592e-02$ \\
+\hline
+Euler - CD 4 & $0$ & $3.355e-01$ \\
+\hline
+Runge-Kutta 2 - CD 2 & $0$ & $5.592e-02$\\
+\hline
+Runge-Kutta 2 - CD 4 & $0$ & $3.355e-01$ \\
+\hline
+\end{tabular}
+\end{table}

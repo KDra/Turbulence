@@ -1,2 +1,8 @@
 \section*{Question 5}
 \emph{Finally, discuss your results in terms of which schemes are best suited to be used for simulations of turbulent flows.}
+
+The best schemes are the ones based on Runge-Kutta time stepping because they are more accurate but they have the disadvantage of performing twice the number of steps when compared to Euler based schemes. RK2 allows for larger time step sizes (i.e. it accepts a larger CFL range), however, which may reduce the total time of the simulation. Euler based schemes are also much more unstable, as it was seen in Q2, but this fast growing instabilities could be useful for triggering adaptive schemes to improve the CFL coefficients. RK2 schemes are most useful when pure convection cases are simulated since they are partly stable in the sense that energy does not increase to a high degree if a small amount of time is considered and from figure \ref{visco} it is visible that when coupled with a CD4 scheme, the gaussian wave is not changed to a high degree.
+
+\nth{4} order central differences produce more accurate results but they also need more time to compute for two reasons: firstly, they need to access and operate on more values in a vector and secondly, they place a lower upper limit on $\lambda = 0.35$ compared to $\lambda = 0.5$ for CD2. For pure diffusion the CD2 method seems to be slower due to the one order of magnitude higher diffusion CFL.
+
+In conclusion, as a general choice, the Runge-Kutta 2 coupled with \nth{4} order central differences seems to be the best default setting for most cases that produces even in extreme cases some reasonably accurate results.
