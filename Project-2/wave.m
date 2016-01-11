@@ -12,8 +12,8 @@ X0 = -5.0;                              % start of domain
 X1 = 10.0;                              % end of domain
 L = X1 - X0;                            % length of domain
 %
-dt = 0.003;                            % time interval
-dx = L/N;                               % mesh interval
+dt = 0.003                            % time interval
+dx = L/N                               % mesh interval
 
 % physical parameters
 %c = 1.0;                                % convection velocity

@@ -2,9 +2,9 @@ N=10;
 nu_range = NaN(2, N);
 nu = linspace(1e-5, 0.01, N);
 i=1;
-cr = linspace(1e-5, 2, N);
+cr = linspace(1e-5, 2.5, N);
 for c = cr
-    close all;
+    %close all;
     flags = compNu(c, nu);
     pos1 = find(flags, 1, 'first');
     pos2 = find(flags, 1, 'last');
@@ -15,3 +15,4 @@ for c = cr
     i=i+1;
 end
 
+plot(cr, nu_range(1, :), cr, nu_range(2, :))
