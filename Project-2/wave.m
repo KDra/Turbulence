@@ -12,8 +12,8 @@ X0 = -5.0;                              % start of domain
 X1 = 10.0;                              % end of domain
 L = X1 - X0;                            % length of domain
 %
-dt = 0.003                            % time interval
-dx = L/N                               % mesh interval
+dt = 0.003;                            % time interval
+dx = L/N;                               % mesh interval
 
 % physical parameters
 %c = 1.0;                                % convection velocity
@@ -54,8 +54,8 @@ for k = 1:Nstep
     % Edit: select scheme below
 	% Change time-steps method
     %f = tstep_Euler(@dfdt_diff2, f, c, nu, dt, dx, N); % unstable
-    %f = tstep_Euler(@dfdt_diff4, f, c, nu, dt, dx, N); 
-    f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
+    f = tstep_Euler(@dfdt_diff4, f, c, nu, dt, dx, N); 
+    %f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
     %f = tstep_RK2(@dfdt_diff4, f, c, nu, dt, dx, N);
     
     % logging
