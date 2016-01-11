@@ -1,8 +1,9 @@
-N=5;
+N=10;
 nu_range = NaN(2, N);
-nu = linspace(0.0066, 0.007, N);
+nu = linspace(1e-5, 0.01, N);
 i=1;
-for c = linspace(1.7, 1.8, N)
+cr = linspace(1e-5, 2, N);
+for c = cr
     close all;
     flags = compNu(c, nu);
     pos1 = find(flags, 1, 'first');

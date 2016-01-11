@@ -54,8 +54,8 @@ for k = 1:Nstep
     % Edit: select scheme below
 	% Change time-steps method
     %f = tstep_Euler(@dfdt_diff2, f, c, nu, dt, dx, N); % unstable
-    f = tstep_Euler(@dfdt_diff4, f, c, nu, dt, dx, N); 
-    %f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
+    %f = tstep_Euler(@dfdt_diff4, f, c, nu, dt, dx, N); 
+    f = tstep_RK2(@dfdt_diff2, f, c, nu, dt, dx, N);
     %f = tstep_RK2(@dfdt_diff4, f, c, nu, dt, dx, N);
     
     % logging
